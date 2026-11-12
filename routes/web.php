@@ -18,3 +18,9 @@ Route::resource('proveedores', ProveedorController::class)
 Route::get('/', function () {
     return redirect()->route('proveedores.index');
 });
+
+use App\Http\Controllers\EmpleadoController;
+Route::resource('empleados', EmpleadoController::class);
+Route::get('/', function () {
+    return redirect()->route('empleados.index');
+});
