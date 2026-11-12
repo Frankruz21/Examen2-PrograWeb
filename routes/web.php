@@ -11,3 +11,10 @@ Route::resource('medicamentos', MedicamentoController::class);
 Route::get('/', function () {
     return redirect()->route('medicamentos.index');
 });
+
+use App\Http\Controllers\ProveedorController;
+Route::resource('proveedores', ProveedorController::class)
+    ->parameters(['proveedores' => 'proveedor']);
+Route::get('/', function () {
+    return redirect()->route('proveedores.index');
+});
