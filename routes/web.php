@@ -5,6 +5,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\MedicamentoController;
 use App\Http\Controllers\ProveedorController;
 use App\Http\Controllers\EmpleadoController;
+use App\Http\Controllers\DashboardController;
 
 
 // RUTAS PÚBLICAS (Solo invitados: guest)
@@ -39,6 +40,9 @@ Route::middleware('auth')->group(function () {
     Route::get('/', function () {
         return redirect()->route('empleados.index');
     });
+
+    Route::get('/dashboard', [DashboardController::class, 'index'])
+    ->name('dashboard');
 
 });
 

@@ -18,9 +18,10 @@
 
     <body class="sb-nav-fixed">
 
+        <!-- Navbar superior -->
         <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
 
-            <a class="navbar-brand ps-3" href="{{ route('medicamentos.index') }}">
+            <a class="navbar-brand ps-3" href="{{ route('dashboard') }}">
                 DISFARMA
             </a>
 
@@ -74,6 +75,7 @@
 
         <div id="layoutSidenav">
 
+            <!-- Sidebar -->
             <div id="layoutSidenav_nav">
 
                 <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
@@ -82,6 +84,17 @@
 
                         <div class="nav">
 
+                            <!-- Dashboard -->
+                            <div class="sb-sidenav-menu-heading">Principal</div>
+
+                            <a class="nav-link" href="{{ route('dashboard') }}">
+                                <div class="sb-nav-link-icon">
+                                    <i class="fas fa-tachometer-alt"></i>
+                                </div>
+                                Dashboard
+                            </a>
+
+                            <!-- Gestión -->
                             <div class="sb-sidenav-menu-heading">Gestión</div>
 
                             <a class="nav-link" href="{{ route('medicamentos.index') }}">
@@ -98,18 +111,20 @@
                                 Nuevo Medicamento
                             </a>
 
+                            <!-- Personal -->
                             <div class="sb-sidenav-menu-heading">Personal</div>
 
-                            <a class="nav-link" href="{{ Route::has('empleados.index') ? route('empleados.index') : url('/empleados') }}">
+                            <a class="nav-link" href="{{ route('empleados.index') }}">
                                 <div class="sb-nav-link-icon">
                                     <i class="fas fa-users text-warning"></i>
                                 </div>
                                 Empleados
                             </a>
 
+                            <!-- Administración -->
                             <div class="sb-sidenav-menu-heading">Administración</div>
 
-                            <a class="nav-link" href="{{ Route::has('proveedores.index') ? route('proveedores.index') : url('/proveedores') }}">
+                            <a class="nav-link" href="{{ route('proveedores.index') }}">
                                 <div class="sb-nav-link-icon">
                                     <i class="fas fa-truck"></i>
                                 </div>
@@ -120,7 +135,7 @@
 
                     </div>
 
-                    <!-- Usuario conectado en el sidebar -->
+                    <!-- Usuario conectado -->
                     <div class="sb-sidenav-footer">
                         <div class="small">Conectado como:</div>
                         <span class="text-white fw-bold">{{ Auth::user()->name }}</span>
@@ -130,6 +145,7 @@
 
             </div>
 
+            <!-- Contenido principal -->
             <div id="layoutSidenav_content">
 
                 <main>
@@ -152,6 +168,7 @@
 
                 </main>
 
+                <!-- Footer -->
                 <footer class="py-4 bg-light mt-auto">
 
                     <div class="container-fluid px-4">
@@ -168,6 +185,7 @@
 
         </div>
 
+        <!-- Scripts -->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
 
         <script src="{{ asset('sb-admin/js/scripts.js') }}"></script>
@@ -183,3 +201,4 @@
 
     </body>
 </html>
+
