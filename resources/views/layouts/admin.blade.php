@@ -1,4 +1,4 @@
-```blade
+
 <!DOCTYPE html>
 <html lang="es">
     <head>
@@ -28,6 +28,47 @@
                 id="sidebarToggle" href="#!">
                 <i class="fas fa-bars"></i>
             </button>
+
+            <!-- Usuario autenticado -->
+            <ul class="navbar-nav ms-auto me-3 me-lg-4">
+                <li class="nav-item dropdown">
+
+                    <a class="nav-link dropdown-toggle text-white"
+                        id="navbarDropdown"
+                        href="#"
+                        role="button"
+                        data-bs-toggle="dropdown"
+                        aria-expanded="false">
+
+                        <i class="fas fa-user-circle me-1 text-warning"></i>
+                        <span class="fw-bold">{{ Auth::user()->name }}</span>
+                    </a>
+
+                    <ul class="dropdown-menu dropdown-menu-end shadow"
+                        aria-labelledby="navbarDropdown">
+
+                        <li>
+                            <span class="dropdown-item-text small text-muted">
+                                {{ Auth::user()->email }}
+                            </span>
+                        </li>
+
+                        <li><hr class="dropdown-divider" /></li>
+
+                        <li>
+                            <form action="{{ route('logout') }}" method="POST" class="d-inline">
+                                @csrf
+
+                                <button type="submit" class="dropdown-item text-danger">
+                                    <i class="fas fa-sign-out-alt me-1"></i>
+                                    Cerrar Sesión
+                                </button>
+                            </form>
+                        </li>
+
+                    </ul>
+                </li>
+            </ul>
 
         </nav>
 
@@ -79,9 +120,10 @@
 
                     </div>
 
+                    <!-- Usuario conectado en el sidebar -->
                     <div class="sb-sidenav-footer">
                         <div class="small">Conectado como:</div>
-                        Administrador
+                        <span class="text-white fw-bold">{{ Auth::user()->name }}</span>
                     </div>
 
                 </nav>

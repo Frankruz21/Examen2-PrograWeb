@@ -12,7 +12,7 @@ class AuthController extends Controller
  public function showLogin()
  {
  if (Auth::check()) {
- return redirect()->route('productos.index');
+ return redirect()->route('medicamentos.index');
  }
  return view('auth.login');
  }
@@ -25,7 +25,7 @@ class AuthController extends Controller
  ]);
  if (Auth::attempt($credentials)) {
  $request->session()->regenerate();
- return redirect()->intended(route('productos.index'))
+ return redirect()->intended(route('medicamentos.index'))
   ->with('success', '¡Bienvenido al sistema, ' . Auth::user()->name . '!');
  }
  return back()->withErrors([
@@ -37,7 +37,7 @@ os.',
  public function showRegister()
  {
  if (Auth::check()) {
- return redirect()->route('productos.index');
+ return redirect()->route('medicamentos.index');
  }
  return view('auth.register');
  }
@@ -55,7 +55,7 @@ os.',
  'password' => Hash::make($request->password),
  ]);
  Auth::login($user);
- return redirect()->route('productos.index')
+ return redirect()->route('medicamentos.index')
  ->with('success', '¡Cuenta creada con éxito! Bienvenido a Fe
 rretería La Bendición.');
  }
